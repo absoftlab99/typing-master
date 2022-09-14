@@ -78,19 +78,24 @@ const gameOver = () => {
   // make it inactive
   display.classList.add("inactive");
   // show result
+
+  const words = questionText.split(' ').length;
+  let typeSpeed = Math.round((words * 60 ) / times);
+
   resultModal.innerHTML += `
     <h1>Finished!</h1>
     <p>You took: <span class="bold">${times}</span> seconds</p>
     <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
+    <p>Your Score is <span class="bold red">${typeSpeed}</span> WPM</p>
     <button onclick="closeModal()">Close</button>
   `;
 
-  addHistory(questionText, times, errorCount);
-
+  addHistory(questionText, times, errorCount, typeSpeed);
   // restart everything
   startTime = null;
   errorCount = 0;
   userText = "";
+  typeSpeed = 0;
   display.classList.add("inactive");
 };
 
