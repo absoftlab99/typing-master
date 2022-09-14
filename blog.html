@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My New Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <style>
+        body{
+            background-image: url(./bg.png);
+        }
+    </style>
+</head>
+<body>
+    
+    <main>
+        <section class="container">
+            <!-- blog - 1 -->
+            <article class="mt-4">
+                <div class="bg-dark bg-opacity-50 border border-light rounded p-5">
+                    <h1 class="text-light text-center"><u>Blog-1</u></h1>
+                    <h2 class="text-light">Difference Between Local Storage & Session Storage</h2>
+                    <p class="text-light text-justify text-lead"><b>Local Storage:</b><br> This read-only interface property provides access to the Document’s local storage object, the stored data is stored across browser sessions. Similar to sessionStorage, except that localStorage data gets cleared when the page session ends – that is when the page is closed. It is cleared when the last “private” tab of a browser is closed (localStorage data for a document loaded in a private browsing or incognito session).<br>
+
+                        DOMStrings are storage formats that use UTF-16 to encode data, which uses two bytes per character. Strings are automatically generated from integer keys just as they are for objects. The data stored in LocalStorage is specific to a protocol in the document. If the site is loaded over HTTP (e.g., http://example.com), localStorage returns a different object than if it is loaded over HTTPS (e.g., https://abc.com).<br><br>
+                        
+                        If a document is loaded from a file: URL (that is, directly from the user’s local file system instead of being loaded from the server) the requirements for behavior are undefined and may vary among different browsers. Each file appears to be returned a different object by localStorage in all current browsers: URL. Essentially, it seems to be a case of each URL: file having its own unique local storage area.<br>
+                        
+                        This behavior cannot be guaranteed because as mentioned above, the file: URL requirements remain unclear. As such, there’s a possibility that browsers may change how they handle files at any time. The way some browsers handle it has evolved.</p>
+                    <p class="text-light text-justify text-lead"><b>Session Storage:</b><br>
+                        Session Storage objects can be accessed using the sessionStorage read-only property. The difference between sessionStorage and localStorage is that localStorage data does not expire, whereas sessionStorage data is cleared when the page session ends.<br><br>
+                        
+                        A unique page session gets created once a document is loaded in a browser tab. Page sessions are valid for only one tab at a time. Pages are only saved for the amount of time that the tab or the browser is open; they do not persist after the page reloads and restores. A new session is created each time a tab or window is opened; this is different from session cookies. Each tab/window that is opened with the same URL creates its own sessionStorage.When you duplicate a tab, the sessionStorage from the original tab is copied to the duplicated tab. Closing a window/tab ends the session and clears sessionStorage objects.<br><br>
+                        
+                        A page’s protocol determines what data is stored in sessionStorage. Particularly, data stored by scripts accessed through HTTP (for example, http://abc.com) is stored in a separate object from the same site accessed through HTTPS (for instance, https://abc.com). A DOMString number is two bytes per character in UTF-16 DOMString format. Strings are automatically generated from integer keys just as they are for objects.</p>
+                </div>
+            </article>
+            <!-- blog - 2 -->
+            <article class="mt-4">
+                <div class="bg-dark border border-light rounded p-5">
+                    <h1 class="text-light text-center"><u>Blog-2</u></h1>
+                    <h2 class="text-light">Difference Between Local Storage & Session Storage</h2>
+                    <p class="text-light text-justify text-lead"><b>The Global scope:</b><br>A variable exists inside or outside a block. If a variable is declared outside all functions or curly braces ({}), it exists in the global scope. The global variables can be accessed by any line of code in the program, including inside blocks.</p>
+                    <p class="text-light text-justify text-lead"><b>The Block scope:</b><br>
+                        So far, we’ve seen variables defined with the var keyword. Var can declare a variable either in the global or local scope. The variables that are declared within the block scope are comparable to local ones. They are available within the block that they are defined.
+                        
+                        The main difference between the local scope and block scope is that the block statements (e.g. if conditions or for loops), don't create a new scope. So the var keyword will not have an effect, because the variables are still in the same scope.</p>
+                </div>
+            </article>
+            <!-- blog - 3 -->
+            <article class="mt-4">
+                <div class="bg-dark border border-light rounded p-5">
+                    <h1 class="text-light text-center"><u>Blog-3</u></h1>
+                    <h2 class="text-light">How to works Event Loop in Java-Script</h2>
+                    <p class="text-light text-justify text-lead"><b>Event Loop:</b><br>The Event Loop has one simple job — to monitor the Call Stack and the Callback Queue. If the Call Stack is empty, the Event Loop will take the first event from the queue and will push it to the Call Stack, which effectively runs it. Such an iteration is called a tick in the Event Loop.</p>
+                </div>
+            </article>
+            <!-- blog - 4 -->
+            <article class="mt-4">
+                <div class="bg-dark border border-light rounded p-5">
+                    <h1 class="text-light text-center"><u>Blog-4</u></h1>
+                    <h2 class="text-light">How many ways have to get undefined</h2>
+                    <p class="text-light text-justify text-lead"><b>What is undefined?:</b><br>The undefined is a primitive type in JavaScript. So the undefined is a type. And the undefined type has exactly one value that is undefined.JavaScript uses the undefined value in the following situations.<br>
+                    <br>
+                    <b>1. Accessing an uninitialized variable</b><br>
+                    When you declare a variable and don’t initialize it to a value, the variable will have a value of undefined. For example:<br>
+                    <code>
+                        let counter;<br>
+                        console.log(counter); // undefined
+                    </code><br><br>
+                    <b>2. Accessing a non-existing property of an object</b><br>
+                    If you access a non-existing property of an object, you’ll get undefined. For example:<br>
+                    <code>
+                        let counter = {<br>
+                            current: 0<br>
+                        };<br>
+                         console.log(counter.max); // undefined<br>
+                    </code><br>
+                    <b>3. Function parameters</b><br>When you call a function with a number of parameters, you often pass the same number of arguments. For example:<br>
+                    <code>
+                        const formatCurrency = (amount, currency) => {<br>
+                            return currency === '$' ?<br>
+                            `$${amount}`: `${amount} ${currency}`;<br>
+                        }<br>
+                    </code><br>
+                    <b>4. Functions return a value</b><br>A function that doesn’t have a return statement implicitly returns undefined. For example:<br>
+                    <code>
+                        const log = (message) => {<br>
+                            const time = (new Date()).toLocaleTimeString();<br>
+                            console.log(`${time}: ${message}`);<br>
+                        };<br>
+                        <br>
+                        const result = log('Hi');<br>
+                          console.log(result); // undefined<br>
+                    </code><br>
+                    <b>5. Accessing out-of-bounds array elements</b><br>When you access an array element that is out-of-bounds, you’ll get the undefined value. For example:<br>
+                    <code>
+                        const colors = ['red', 'green', 'blue'];<br>
+                        console.log(colors[3]); // undefined<br>
+                    </code>
+                    </p>
+                </div>
+            </article>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>
