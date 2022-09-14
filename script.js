@@ -97,6 +97,8 @@ const gameOver = () => {
 const closeModal = () => {
   modalBackground.classList.toggle("hidden");
   resultModal.classList.toggle("hidden");
+  clearInterval(clearTime);
+  document.getElementById('show-time').innerText = '0 seconds';
 };
 
 const start = () => {
@@ -130,10 +132,10 @@ startBtn.addEventListener("click", start);
 displayHistory();
 
 // Show typing time spent
-setInterval(() => {
+const clearTime = setInterval(() => {
   const currentTime = new Date().getTime();
   const timeSpent = (currentTime - startTime) / 1000;
 
   const times = Math.floor(timeSpent);
-  document.getElementById("show-time").innerHTML = `${startTime ? times : 0} seconds`;
+  document.getElementById("show-time").innerHTML = `${timeSpent ? times : 0} seconds`;
 }, 1000);
