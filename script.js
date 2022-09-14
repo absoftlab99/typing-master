@@ -14,11 +14,10 @@ let questionText = "";
 // Load and display question
 fetch("./texts.json")
   .then((res) => res.json())
-  .then((data) => {
+  .then((data) =>{
     questionText = data[Math.floor(Math.random() * data.length)];
-    question.innerHTML = questionText;
+    question.innerText = questionText;
   });
-
 // checks the user typed character and displays accordingly
 const typeController = (e) => {
   const newLetter = e.key;
@@ -134,6 +133,6 @@ setInterval(() => {
   const currentTime = new Date().getTime();
   const timeSpent = (currentTime - startTime) / 1000;
 
-
-  document.getElementById("show-time").innerHTML = `${startTime ? timeSpent : 0} seconds`;
+  const times = Math.floor(timeSpent);
+  document.getElementById("show-time").innerHTML = `${startTime ? times : 0} seconds`;
 }, 1000);
