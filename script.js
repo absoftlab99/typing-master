@@ -12,12 +12,15 @@ let startTime;
 let questionText = "";
 
 // Load and display question
-fetch("./texts.json")
+const showText = () =>{
+  fetch("./texts.json")
   .then((res) => res.json())
   .then((data) =>{
     questionText = data[Math.floor(Math.random() * data.length)];
     question.innerText = questionText;
   });
+}
+showText();
 // checks the user typed character and displays accordingly
 const typeController = (e) => {
   const newLetter = e.key;
@@ -67,8 +70,7 @@ const gameOver = () => {
   // so total time taken is current time - start time
   const finishTime = new Date().getTime();
   const timeTaken = (finishTime - startTime) / 1000;
-  const times = Math.floor(timeTaken);
-
+  const times = Math.round(timeTaken);
   // show result modal
   resultModal.innerHTML = "";
   resultModal.classList.toggle("hidden");
@@ -102,8 +104,8 @@ const gameOver = () => {
 const closeModal = () => {
   modalBackground.classList.toggle("hidden");
   resultModal.classList.toggle("hidden");
-  clearInterval(clearTime);
-  document.getElementById('show-time').innerText = '0 seconds';
+
+  showText();
 };
 
 const start = () => {
@@ -139,8 +141,8 @@ displayHistory();
 // Show typing time spent
 const clearTime = setInterval(() => {
   const currentTime = new Date().getTime();
-  const timeSpent = (currentTime - startTime) / 1000;
+  const timeSpent = Math.floor((currentTime - startTime) / 1000);
 
   const times = Math.floor(timeSpent);
-  document.getElementById("show-time").innerHTML = `${timeSpent ? times : 0} seconds`;
+  document.getElementById("show-time").innerHTML = `${startTime ? times : 0} seconds`;
 }, 1000);
